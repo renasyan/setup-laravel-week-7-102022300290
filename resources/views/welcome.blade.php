@@ -26,6 +26,21 @@
 </head>
 <body class="text-gray-800 font-sans">
     <div class="max-w-6xl mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-6 blur-bg p-4 rounded-xl shadow-lg">
+            <div class="text-xl text-gray-700">
+                @auth
+                    <p>Halo, <strong>{{ Auth::user()->name }}</strong></p>
+                @endauth
+            </div>
+
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white text-sm font-semibold py-2 px-4 rounded">
+                    Logout
+                </button>
+            </form>
+        </div>
+
         <h1 class="text-4xl text-pink-600 anime-header mb-6 text-center">ANIME LIST</h1>
 
         <div class="overflow-x-auto shadow-xl rounded-xl blur-bg p-6">
